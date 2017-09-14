@@ -1,0 +1,26 @@
+buy-ubq-0.00100-0.5(100-UBQ)
+
+
+100UBQ - Ki vong khoi luong mua
+
+<= 0.001 => tinh khoi luong thuc te co the : 110 >= Ki vong
+
+Khop lenh thanh cong => tinh so BTC da chi gia ask * khoi luong ban
+
+So BTC : Con lai
+
+buy ubq-0.00100 so con lai
+So BTC <= 0.00050000 thoi 
+con lai bao nhiu btc
+
+ask
+a-0.00090-50-UBQ
+khop->mua
+
+a1-0.00090-100-UBQ
+
+
+b-0.001100-10-UBQ
+
+
+c-0.001100-50-UBQ
