@@ -28,7 +28,7 @@ function actionBuy(amout,i){
 }
 
 function buy(type_BTC,bid,i){
-	
+	console.log(amout_quere[i]);
 	if(amout_quere[i] > 0.5){
 		services.getticker( { market : "USDT-BTC" }, function( data, err ){
 			curBtc = data.result.Last;
@@ -39,6 +39,7 @@ function buy(type_BTC,bid,i){
 			  	if(result[j].Rate <= bitBtc){
 			  		
 			  		var amoutSpend = result[j].Quantity * result[j].Rate * curBtc;
+			  		console.log(amoutSpend);
 			  		if(amoutSpend > amout_quere[i]){
 				  		var message = "Da mua " + type_BTC + " Gia: "+ result[j].Rate+" Vol: "+ (amout_quere[i]/(result[j].Rate * curBtc));
 					  		message = message + "<br/> So tien con lai trong quere " + i + " : 0 USD";
@@ -67,7 +68,7 @@ function buy(type_BTC,bid,i){
 }
 
 function sell(type_BTC,bidUsd,i){
-	if(vol_quere[i] > 0){
+	if(curVol[i] > 0){
 		var tmp = type_BTC.replace("BTC-","");
 		services.getbalance({currency : tmp},function(data,err){
 			// var curVol = data.result.Available;
@@ -131,16 +132,17 @@ function handle(message,i){
 		if(action.indexOf("buy") > -1){
 			var amoutUsd = arr[3];
 			amout_quere[i] = amoutUsd;			
-			buyInterval[i] = setInterval(function(){buy(type_BTC, bid,i)}, 1000);
+			buyInterval[i] = setInterval(function(){buy(type_BTC, bid,i)}, 2000);
 		}
 
 		store[i] = 2000;
 		if(action.indexOf("sell") > -1){
 			var vol = arr[3];
-			vol_quere[i] = vol;
-			curVol[i] = 2000;
-			
-			sellInterval[i] = setInterval(function(){sell(type_BTC, bid,i)}, 1000);
+			curVol[i] = vol;
+			vol_quere[i] = curVol[i];
+			store[i] = store[i] - vol;
+						
+			sellInterval[i] = setInterval(function(){sell(type_BTC, bid,i)}, 2000);
 		}	
 	} else {
 		io.sockets.emit("message",{
