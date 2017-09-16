@@ -1,0 +1,26 @@
+{
+  "name": "btc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "config.ex.js",
+  "dependencies": {
+    "express": "^4.15.4",
+    "node.bittrex.api": "^0.5.1",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phunm-uet/chat-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phunm-uet/chat-bot/issues"
+  },
+  "homepage": "https://github.com/phunm-uet/chat-bot#readme"
+}
